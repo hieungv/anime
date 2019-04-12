@@ -17,6 +17,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :categories %>
+    <%= form.select :category_ids,
+      options_for_select(@categories.map{|key, value| [key, value]}),
+        {include_blank: true}, {class: "chosen-select", multiple: "true"} %>
+  </div>
+
+  <div class="field">
     <%= form.label :release_year %>
     <%= form.date_field :release_year %>
   </div>

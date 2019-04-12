@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_164731) do
+ActiveRecord::Schema.define(version: 2019_04_30_165717) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -55,10 +55,12 @@ ActiveRecord::Schema.define(version: 2019_04_28_164731) do
   end
 
   create_table "film_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "film_id"
-    t.integer "categories_id"
+    t.bigint "category_id"
+    t.bigint "film_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_film_categories_on_category_id"
+    t.index ["film_id"], name: "index_film_categories_on_film_id"
   end
 
   create_table "films", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -115,9 +117,10 @@ ActiveRecord::Schema.define(version: 2019_04_28_164731) do
     t.integer "view"
     t.integer "episodes"
     t.string "slug"
-    t.string "image"
     t.index ["slug"], name: "index_videos_on_slug", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "film_categories", "categories"
+  add_foreign_key "film_categories", "films"
 end

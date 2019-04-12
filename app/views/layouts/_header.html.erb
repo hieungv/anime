@@ -24,88 +24,47 @@
               <%= link_to "Home", "index.html" %>
             </li>
             <li class="dropdown">
-              <%= link_to  "#", class: "dropdown-toggle",
-                data: {toggle: "dropdown"}, aria: {expanded: "true"} do %>Genre
+              <%= link_to categories_path, class: "dropdown-toggle",
+                data: {toggle: "dropdown"}, aria: {expanded: "true"} do %>
+                Thể loại
                 <b class="caret"></b>
               <% end %>
               <ul class="dropdown-menu multi-column columns-3">
                 <li>
-                <div class="col-sm-4">
+                <div class="col-sm-12">
                   <ul class="multi-column-dropdown">
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                  </ul>
-                </div>
-                <div class="col-sm-4">
-                  <ul class="multi-column-dropdown">
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                  </ul>
-                </div>
-                <div class="col-sm-4">
-                  <ul class="multi-column-dropdown">
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-
+                    <% list_categories.each do |category| %>
+                      <li><%= link_to category.name, category %></li>
+                    <% end %>
                   </ul>
                 </div>
                 <div class="clearfix"></div>
                 </li>
               </ul>
             </li>
-            <li><%= link_to "tv - series ", "series.html" %></li>
             <li><%= link_to "news", "news.html" %></li>
-            <li class="dropdown">
-              <%= link_to  "#", class: "dropdown-toggle",
-                data: {toggle: "dropdown"}, aria: {expanded: "true"} do %>Country
-                  <b class="caret"></b>
+
+          <% if user_signed_in? %>
+            <% if current_user.admin %>
+              <li><%= link_to "Danh sách anime", films_path %></li>
+            <% end %>
+          <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                Đăng xuất
               <% end %>
-            <ul class="dropdown-menu multi-column columns-3">
+            </li>
+          <% else %>
+            <li class="dropdown">
+              <%= link_to "Đăng nhập", new_user_session_path %>
+              <ul class="dropdown-menu multi-column columns-3">
               <li>
-                <div class="col-sm-4">
-                  <ul class="multi-column-dropdown">
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                  </ul>
-                </div>
-                <div class="col-sm-4">
-                  <ul class="multi-column-dropdown">
-                    <li><a href="genre.html">China</a></li>
-                    <li><a href="genre.html">HongCong</a></li>
-                    <li><a href="genre.html">Japan</a></li>
-                    <li><a href="genre.html">Thailand</a></li>
-                  </ul>
-                </div>
-                <div class="col-sm-4">
-                  <ul class="multi-column-dropdown">
-                    <li><a href="genre.html">Euro</a></li>
-                    <li><a href="genre.html">India</a></li>
-                    <li><a href="genre.html">Korea</a></li>
-                    <li><a href="genre.html">United Kingdom</a></li>
-                  </ul>
-                </div>
-                <div class="clearfix"></div>
+                <ul class="multi-column-dropdown">
+                  <%= link_to "Đăng ký", new_user_registration_path %>
+                </ul>
               </li>
             </ul>
           </li>
-          <li><%= link_to "Danh sach anime", films_path %></li>
-          <li><%= link_to "LogIn", new_user_session_path %></li>
+          <% end %>
         </ul>
       </div>
       <div class="clearfix"> </div>

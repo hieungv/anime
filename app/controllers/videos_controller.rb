@@ -1,55 +1,42 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-  before_action :find_film, except: [:show]
+  before_action :find_film, except: %i(show)
 
-  # GET /videos
-  # GET /videos.json
   def index
     @videos = Video.all
   end
 
-  # GET /videos/1
-  # GET /videos/1.json
   def show
     @film = Film.friendly.find params[:film_id]
     @videos = @film.videos.all
   end
 
-  # GET /videos/new
   def new
     @video = Video.new
   end
 
-  # GET /videos/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /videos
-  # POST /videos.json
   def create
     @video = Video.new(video_params)
     @video.film_id = @film.id
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render :show, status: :created, location: @video }
+        format.html{redirect_to films_path}
       else
-        format.html { render :new }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+        format.html{render :new}
       end
     end
   end
 
-  # PATCH/PUT /videos/1
-  # PATCH/PUT /videos/1.json
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
-        format.json { render :show, status: :ok, location: @video }
+        format.html{redirect_to @video}
+        format.json{render :show, status: :ok, location: @video}
       else
-        format.html { render :edit }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+        format.html{render :edit}
+        format.json{render json: @video.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -59,8 +46,7 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html{redirect_to videos_url}
     end
   end
 
@@ -71,7 +57,8 @@ class VideosController < ApplicationController
   end
 
   def find_film
-    @film = Film.friendly.find params[:film_id]
+    return if @film = Film.friendly.find(params[:film_id])
+    redirect_to films_path
   end
 
   def video_params
