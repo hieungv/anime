@@ -1,8 +1,8 @@
-<%= @videos.each do |video| %>
+<% @videos.each do |video| %>
 <div class="col-md-2 w3l-movie-gride-agile requested-movies">
   <%= link_to film_video_path(film_id: video.film_id, id: video), class: "hvr-sweep-to-bottom" do %>
     <div style="width: 230px; height: 300px">
-      <%=image_tag url_for(video.film.thumbnail), title: video.name, class: "img-responsive", alt: " " %>
+      <%= image_tag url_for(video.film.thumbnail), title: video.title, class: "img-responsive", alt: " " %>
     </div>
     <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
   <% end %>

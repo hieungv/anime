@@ -24,49 +24,24 @@
               <%= link_to "Home", "index.html" %>
             </li>
             <li class="dropdown">
-              <%= link_to  "#", class: "dropdown-toggle",
-                data: {toggle: "dropdown"}, aria: {expanded: "true"} do %>Genre
+              <%= link_to categories_path, class: "dropdown-toggle",
+                data: {toggle: "dropdown"}, aria: {expanded: "true"} do %>
+                Thể loại
                 <b class="caret"></b>
               <% end %>
               <ul class="dropdown-menu multi-column columns-3">
                 <li>
-                <div class="col-sm-4">
+                <div class="col-sm-12">
                   <ul class="multi-column-dropdown">
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                  </ul>
-                </div>
-                <div class="col-sm-4">
-                  <ul class="multi-column-dropdown">
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                  </ul>
-                </div>
-                <div class="col-sm-4">
-                  <ul class="multi-column-dropdown">
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-                    <li><%= link_to "news", "news.html" %></li>
-
+                    <% list_categories.each do |category| %>
+                      <li><%= link_to category.name, category %></li>
+                    <% end %>
                   </ul>
                 </div>
                 <div class="clearfix"></div>
                 </li>
               </ul>
             </li>
-            <li><%= link_to "tv - series ", "series.html" %></li>
             <li><%= link_to "news", "news.html" %></li>
             <li class="dropdown">
               <%= link_to  "#", class: "dropdown-toggle",

@@ -13,6 +13,5 @@
  *= require style.css
  *= require dataTables.bootstrap.min.css
  *= require video-js
+ *= require chosen
  */
-/*@import "font-awesome-sprockets";
-@import "font-awesome";*/

@@ -4,11 +4,12 @@
       <div class="col-md-9 latest-news-agile-left-content">
         <div class="single video_agile_player">
           <div class="video-grid-single-page-agileits" id="main-content">
-           <video id='video' class='video-js' controls preload='auto' class= "img-responsive"
-            poster="<%= url_for(@video.thumbnail) %>" data-setup='{}'>
-              <source src="<%= url_for(@video.clip) %>" type='video/mp4'>
-
+            <video id="video" class="video-js" controls preload="auto"
+              poster="<%= url_for(@video.thumbnail) %>" data-setup="{}">
+              <source src="<%= url_for(@video.clip) %>" type="video/mp4">
             </video>
+          <script src='https://vjs.zencdn.net/7.5.4/video.js'></script>
+
           </div>
             <h4><%= @video.title %></h4>
         </div>
