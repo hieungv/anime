@@ -22,7 +22,11 @@ class VideosController < ApplicationController
     @video.film_id = @film.id
     respond_to do |format|
       if @video.save
+<<<<<<< HEAD
         format.html{redirect_to films_path}
+=======
+        format.html{redirect_to @video}
+>>>>>>> 617e6bb... Create film
       else
         format.html{render :new}
       end

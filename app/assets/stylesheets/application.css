@@ -12,5 +12,9 @@
  *= require table-style.css
  *= require style.css
  *= require dataTables.bootstrap.min.css
+<<<<<<< HEAD
+=======
+ *= require video-js
+>>>>>>> 617e6bb... Create film
  *= require chosen
  */

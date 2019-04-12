@@ -19,6 +19,10 @@
 //= require dataTables.bootstrap.min.js
 //= require jquery.dataTables.min.js
 //= require jquery-1.11.1.min.js
+<<<<<<< HEAD
+=======
+//= require video-js
+>>>>>>> 617e6bb... Create film
 //= require chosen-jquery
 //= require chosen-prototype
 //= require films
