@@ -26,8 +26,12 @@
             <td class="w3-list-info"><a href="genre.html">
               <%= film.categories.first.name %></a>
             </td>
-            <td class="w3-list-info"><a href="genre.html">
-              <%= film.categories.first.name %></a>
+            <td class="w3-list-info">
+              <%= film.categories.each do |f| %>
+                <%= link_to f do %>
+                  <%= f.name %>
+                <% end %>
+              <% end %>
             </td>
             <td>7.0</td>
             <td>dang cap nhat</td>

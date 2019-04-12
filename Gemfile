@@ -7,6 +7,7 @@ gem "aws-sdk-s3", require: false
 gem "bootsnap"
 gem "bootstrap-kaminari-views"
 gem "carrierwave"
+gem "chosen-rails"
 gem "ckeditor", "4.1.3"
 gem "coffee-rails", "~> 4.2"
 gem "devise"
