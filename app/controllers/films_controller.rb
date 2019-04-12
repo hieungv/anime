@@ -64,11 +64,11 @@ class FilmsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_film
-      @film = Film.find(params[:id])
+      @film = Film.friendly.find(params[:id])
     end
 
     def find_video
-      @video = Video.find_by(id: params[:id])
+      @video = Video.friendly.find_by(id: params[:id])
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def film_params

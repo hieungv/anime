@@ -11,7 +11,6 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    @videos = Video.find_by(id: params[:video_id])
   end
 
   # GET /videos/new
@@ -66,11 +65,11 @@ class VideosController < ApplicationController
   private
 
   def set_video
-    @video = Video.find(params[:id])
+    @video = Video.friendly.find(params[:id])
   end
 
   def find_film
-    @film = Film.find params[:film_id]
+    @film = Film.friendly.find params[:film_id]
   end
 
   def video_params
