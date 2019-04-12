@@ -27,5 +27,6 @@ module Anime
     config.i18n.default_locale = :en
     config.generators.system_tests = nil
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

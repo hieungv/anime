@@ -1,0 +1,128 @@
+<div id="demo-1" >
+  <div class="demo-inner-content">
+    <!--/header-w3l-->
+    <div class="header-w3-agileits" id="home" style="padding-top: 0px;">
+      <div class="inner-header-agile">
+      <nav class="navbar navbar-default" >
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h1>
+            <%=link_to "index.html" do %><span>A</span>nime <span>P</span>ro
+            <% end %>
+          </h1>
+        </div>
+        <!-- navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <%= link_to "Home", "index.html" %>
+            </li>
+            <li class="dropdown">
+              <%= link_to  "#", class: "dropdown-toggle",
+                data: {toggle: "dropdown"}, aria: {expanded: "true"} do %>Genre
+                <b class="caret"></b>
+              <% end %>
+              <ul class="dropdown-menu multi-column columns-3">
+                <li>
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+
+                  </ul>
+                </div>
+                <div class="clearfix"></div>
+                </li>
+              </ul>
+            </li>
+            <li><%= link_to "tv - series ", "series.html" %></li>
+            <li><%= link_to "news", "news.html" %></li>
+            <li class="dropdown">
+              <%= link_to  "#", class: "dropdown-toggle",
+                data: {toggle: "dropdown"}, aria: {expanded: "true"} do %>Country
+                  <b class="caret"></b>
+              <% end %>
+            <ul class="dropdown-menu multi-column columns-3">
+              <li>
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                    <li><%= link_to "news", "news.html" %></li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li><a href="genre.html">China</a></li>
+                    <li><a href="genre.html">HongCong</a></li>
+                    <li><a href="genre.html">Japan</a></li>
+                    <li><a href="genre.html">Thailand</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <ul class="multi-column-dropdown">
+                    <li><a href="genre.html">Euro</a></li>
+                    <li><a href="genre.html">India</a></li>
+                    <li><a href="genre.html">Korea</a></li>
+                    <li><a href="genre.html">United Kingdom</a></li>
+                  </ul>
+                </div>
+                <div class="clearfix"></div>
+              </li>
+            </ul>
+          </li>
+          <li><%= link_to "news", "news.html" %></li>
+          <li><%= link_to "news", "news.html" %></li>
+        </ul>
+      </div>
+      <div class="clearfix"> </div>
+      </nav>
+        <div class="w3ls_search">
+            <div class="cd-main-header">
+              <ul class="cd-header-buttons">
+                <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+              </ul> <!-- cd-header-buttons -->
+            </div>
+            <div id="cd-search" class="cd-search">
+              <form action="#" method="post">
+                <input name="Search" type="search" placeholder="Search...">
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
