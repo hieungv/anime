@@ -1,7 +1,40 @@
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
+<div class="w3_content_agilleinfo_inner">
+  <div class="agile_featured_movies">
+    <h3 class="agile_w3_title hor-t"><%= @category.name%></h3>
+    <div class="wthree_agile-requested-movies tv-movies">
+      <% @category.films.each do |video| %>
+        <div class="col-md-2 w3l-movie-gride-agile requested-movies">
+          <%= link_to video, class: "hvr-sweep-to-bottom" do %>
+            <%= image_tag video.thumbnail, title: "Movies Pro",
+              class: "img-responsive", alt: video.name %>
+            <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+          <% end %>
+          <div class="mid-1 agileits_w3layouts_mid_1_home">
+            <div class="w3l-movie-text">
+              <h6><a href="single.html"><%= video.name %></a></h6>
+            </div>
+            <div class="mid-2 agile_mid_2_home">
+              <p>2016</p>
+              <div class="block-stars">
+                <ul class="w3l-ratings">
+                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="ribben one">
+            <p>NEW</p>
+          </div>
+        </div>
+      <% end %>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

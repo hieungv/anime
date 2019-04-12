@@ -1,7 +1,7 @@
 <div class="scrollbar " id="style-default">
 <div class="agile-info-recent">
   <div class="w3ls-recent-grids">
-    <%= @videos.each do |video| %>
+    <% @videos.each do |video| %>
       <div class="w3l-recent-grid">
         <div class="wom">
           <%=link_to film_video_path(film_id: video.film.slug, id: video) do %>
