@@ -1,0 +1,7 @@
+class Film < ApplicationRecord
+  has_one_attached :thumbnail
+  has_many :categories, through: :film_categories
+  has_many :film_categories, dependent: :destroy
+  has_many :videos, dependent: :destroy
+  accepts_nested_attributes_for :film_categories, allow_destroy: true
+end

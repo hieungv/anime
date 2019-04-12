@@ -1,0 +1,30 @@
+          <%= @videos.each do |video| %>
+
+<div class="col-md-2 w3l-movie-gride-agile requested-movies">
+  <%= link_to film_video_path(film_id: video.film_id, id: video), class: "hvr-sweep-to-bottom" do %>
+    <%=image_tag url_for(video.thumbnail) ,title: "Movies Pro", class: "img-responsive", alt: " " %>
+    <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+  <% end %>
+    <div class="mid-1 agileits_w3layouts_mid_1_home">
+      <div class="w3l-movie-text">
+        <h6><a href="single.html">Swiss Army Man</a></h6>
+      </div>
+      <div class="mid-2 agile_mid_2_home">
+        <p>2016</p>
+        <div class="block-stars">
+          <ul class="w3l-ratings">
+            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  <div class="ribben one">
+    <p>NEW</p>
+  </div>
+</div>
+          <% end %>
