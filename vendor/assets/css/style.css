@@ -9,7 +9,7 @@ html,
 body {
 	font-size: 100%;
 	font-family: 'Lato', sans-serif;
-	background: #ffffff;
+	background: #e2dada;
 	margin: 0px!important;
 }
 
@@ -143,7 +143,7 @@ ul.contact_info li a,
 }
 
 .inner-header-agile {
-	padding: 0 5em;
+	padding: 0 6px;
 	position: relative;
 }
 
@@ -773,7 +773,7 @@ a.w3layouts-t:hover {
 }
 
 .agile_featured_movies {
-	padding: 0 2em;
+	/*padding: 0 2em;*/
 }
 
 .browse-grid:nth-child(6),
@@ -1321,7 +1321,7 @@ h3.agile_w3_title span {
 }
 
 .latest-news-agile-info {
-	padding: 0 2em;
+	/*padding: 0 2em;*/
 }
 
 .wthree-news-info p {
@@ -2772,7 +2772,7 @@ ul.bottom-links-agile li a {
 		font-size: 1.3em;
 	}
 	ul.nav.navbar-nav {
-		margin-left: 5em;
+		margin-left: 0em;
 		margin-top: 1.3em;
 	}
 	.wthree-news-info h5 {
@@ -3454,7 +3454,7 @@ ul.bottom-links-agile li a {
 		left: 47%;
 	}
 	.agile_featured_movies {
-		padding: 0 1em;
+		/*padding: 0 1em;*/
 	}
 	.w3_agilits_inner_bottom {
 		margin: 0 auto;

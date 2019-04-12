@@ -1,13 +1,22 @@
 User.create!(email: "hieu@gmail.com",
   password: "123123", password_confirmation: "123123", admin: true)
-99.times do |n|
-  name  = Faker::Name.name
-  genre_id = rand(1..8)
-  video_id = rand(1..8)
-  image = rand(1..18)
-  Movie.create!(name: name,
-                genre_id: genre_id,
-                video_id: video_id,
-                image: "movie#{image}.jpg",
-                description: "mieuta",)
-end
+Category.create!(name: "Siêu nhiên")
+Category.create!(name: "Đời thường")
+Category.create!(name: "Drama")
+Category.create!(name: "Phiêu lưu")
+Category.create!(name: "Lịch sử")
+Category.create!(name: "Âm nhạc")
+Category.create!(name: "Blu-ray")
+Category.create!(name: "Game")
+Category.create!(name: "Kinh dị")
+Category.create!(name: "Học đường")
+Category.create!(name: "Hài hước")
+Category.create!(name: "Viễn tưởng")
+Category.create!(name: "Hành động")
+Category.create!(name: "Phép thuật")
+Category.create!(name: "Thể thao")
+Category.create!(name: "Học đường")
+Category.create!(name: "Trinh thám")
+Category.create!(name: "Harem")
+Category.create!(name: "Lãng mạn")
+Category.create!(name: "Ecchi")
