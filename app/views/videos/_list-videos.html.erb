@@ -1,0 +1,25 @@
+<div class="scrollbar " id="style-default">
+<div class="agile-info-recent">
+  <div class="w3ls-recent-grids">
+    <%= @videos.each do |video| %>
+      <div class="w3l-recent-grid">
+        <div class="wom">
+          <%=link_to film_video_path(film_id: video.film.slug, id: video) do %>
+             <%=image_tag(url_for(video.thumbnail),
+            alt: " ", class: "img-responsive")%>
+          <% end %>
+        </div>
+        <div class="wom-right">
+          <h6><a href="single.html"><%= video.title %></a></h6>
+            <ul class="w3l-sider-list">
+              <li><i class="fa fa-clock-o" aria-hidden="true"></i>On Jan 12, 2016</li>
+              <li><i class="fa fa-eye" aria-hidden="true"></i> 2602</li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+     <% end %>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+</div>
