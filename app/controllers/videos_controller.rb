@@ -1,6 +1,9 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+<<<<<<< HEAD
   before_action :find_film, except: [:show]
+=======
+>>>>>>> actice storge
 
   # GET /videos
   # GET /videos.json
@@ -26,7 +29,11 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+<<<<<<< HEAD
     @video.film_id = @film.id
+=======
+
+>>>>>>> actice storge
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
@@ -63,6 +70,7 @@ class VideosController < ApplicationController
   end
 
   private
+<<<<<<< HEAD
 
   def set_video
     @video = Video.friendly.find(params[:id])
@@ -76,4 +84,15 @@ class VideosController < ApplicationController
     params.require(:video).permit(:title, :description, :clip, :thumbnail,
       :episodes, :view)
   end
+=======
+    # Use callbacks to share common setup or constraints between actions.
+    def set_video
+      @video = Video.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def video_params
+      params.require(:video).permit(:title, :description, :clip, :thumbnail)
+    end
+>>>>>>> actice storge
 end
