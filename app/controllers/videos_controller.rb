@@ -23,10 +23,14 @@ class VideosController < ApplicationController
     respond_to do |format|
       if @video.save
 <<<<<<< HEAD
+<<<<<<< HEAD
         format.html{redirect_to films_path}
 =======
         format.html{redirect_to @video}
 >>>>>>> 617e6bb... Create film
+=======
+        format.html{redirect_to films_path}
+>>>>>>> 3baa14f... login, fix show
       else
         format.html{render :new}
       end
