@@ -21,8 +21,7 @@ class VideosController < ApplicationController
   end
 
   # GET /videos/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /videos
   # POST /videos.json
@@ -31,11 +30,11 @@ class VideosController < ApplicationController
     @video.film_id = @film.id
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render :show, status: :created, location: @video }
+        format.html{redirect_to @video, notice: "Video was successfully created."}
+        format.json{render :show, status: :created, location: @video}
       else
-        format.html { render :new }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+        format.html{render :new}
+        format.json{render json: @video.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -45,11 +44,11 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
-        format.json { render :show, status: :ok, location: @video }
+        format.html{redirect_to @video, notice: "Video was successfully updated."}
+        format.json{render :show, status: :ok, location: @video}
       else
-        format.html { render :edit }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+        format.html{render :edit}
+        format.json{render json: @video.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -59,8 +58,8 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html{redirect_to videos_url, notice: "Video was successfully destroyed."}
+      format.json{head :no_content}
     end
   end
 
@@ -71,7 +70,8 @@ class VideosController < ApplicationController
   end
 
   def find_film
-    @film = Film.friendly.find params[:film_id]
+    return if @film = Film.friendly.find_by(id: params[:film_id])
+    redirect_to films_path
   end
 
   def video_params

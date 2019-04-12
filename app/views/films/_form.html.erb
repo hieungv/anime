@@ -16,6 +16,14 @@
     <%= form.text_field :name %>
   </div>
 
+  <%= form.fields_for :film_categories do |f| %>
+
+  <div class="field">
+    <%= f.label :categories %>
+    <%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name") %>
+  </div>
+
+  <% end %>
   <div class="field">
     <%= form.label :release_year %>
     <%= form.date_field :release_year %>

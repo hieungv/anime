@@ -15,24 +15,25 @@ class FilmsController < ApplicationController
   # GET /films/new
   def new
     @film = Film.new
+    @film.film_categories.new
+    @categories = Category.all
   end
 
   # GET /films/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /films
   # POST /films.json
   def create
     @film = Film.new(film_params)
-
+    @film.film_categories.first.film_id
     respond_to do |format|
       if @film.save
-        format.html { redirect_to @film, notice: 'Film was successfully created.' }
-        format.json { render :show, status: :created, location: @film }
+        format.html{redirect_to @film, notice: "Film was successfully created."}
+        format.json{render :show, status: :created, location: @film}
       else
-        format.html { render :new }
-        format.json { render json: @film.errors, status: :unprocessable_entity }
+        format.html{render :new}
+        format.json{render json: @film.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -42,11 +43,11 @@ class FilmsController < ApplicationController
   def update
     respond_to do |format|
       if @film.update(film_params)
-        format.html { redirect_to @film, notice: 'Film was successfully updated.' }
-        format.json { render :show, status: :ok, location: @film }
+        format.html{redirect_to @film, notice: "Film was successfully updated."}
+        format.json{render :show, status: :ok, location: @film}
       else
-        format.html { render :edit }
-        format.json { render json: @film.errors, status: :unprocessable_entity }
+        format.html{render :edit}
+        format.json{render json: @film.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -56,22 +57,25 @@ class FilmsController < ApplicationController
   def destroy
     @film.destroy
     respond_to do |format|
-      format.html { redirect_to films_url, notice: 'Film was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html{redirect_to films_url, notice: "Film was successfully destroyed."}
+      format.json{head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_film
-      @film = Film.friendly.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_film
+    @film = Film.friendly.find(params[:id])
+  end
 
-    def find_video
-      @video = Video.friendly.find_by(id: params[:id])
-    end
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def film_params
-      params.require(:film).permit(:name, :release_year, :thumbnail, :description)
+  def find_categories; end
+
+  def find_video
+    @video = Video.friendly.find_by(id: params[:id])
+  end
+
+  def film_params
+    params.require(:film).permit(:name, :release_year, :thumbnail,
+      :description, film_categories_attributes: [:category_id])
     end
 end

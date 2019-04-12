@@ -20,9 +20,11 @@
             <td>1</td>
             <td class="w3-list-img"><a href="single.html"><%= image_tag url_for(video.thumbnail), alt: "" %> <span><%= video.title %></span></a></td>
             <td></td>
-            <td>film</td>
+            <td><%= video.episodes %></td>
             <td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-            <td class="w3-list-info"><a href="genre.html">Comedy, Drama</a></td>
+            <td class="w3-list-info"><a href="genre.html">
+              <%= video.film.categories.first.name %></a>
+            </td>
             <td>7.0</td>
             <td>dang cap nhat</td>
             <td>

@@ -23,8 +23,12 @@
             <td class="w3-list-img"><a href="single.html"><%= image_tag url_for(film.thumbnail), alt: "" %> <span><%= film.name %></span></a></td>
             <td><%= film.release_year %></td>
             <td>HD</td>
-            <td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-            <td class="w3-list-info"><a href="genre.html">Comedy, Drama</a></td>
+            <td class="w3-list-info"><a href="genre.html">
+              <%= film.categories.first.name %></a>
+            </td>
+            <td class="w3-list-info"><a href="genre.html">
+              <%= film.categories.first.name %></a>
+            </td>
             <td>7.0</td>
             <td>dang cap nhat</td>
             <td>
