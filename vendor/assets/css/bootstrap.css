@@ -267,7 +267,10 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> gem friendly_id
   src: url('glyphicons-halflings-regular.eot');
   src: url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
        url('glyphicons-halflings-regular.woff2') format('woff2'),
