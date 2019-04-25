@@ -1,0 +1,86 @@
+<div class="w3_content_agilleinfo_inner">
+  <div class="agile_featured_movies">
+    <div class="latest-news-agile-info" style="padding-top:1em">
+      <div class="col-md-9 latest-news-agile-left-content">
+        <div class="single video_agile_player">
+          <div class="video-grid-single-page-agileits" id="main-content">
+           <video id='video' class='video-js' controls preload='auto' class= "img-responsive"
+            poster="<%= url_for(@video.thumbnail) %>" data-setup='{}'>
+              <source src="<%= url_for(@video.clip) %>" type='video/mp4'>
+
+            </video>
+          </div>
+            <h4><%= @video.title %></h4>
+        </div>
+      </div>
+      <div class="col-md-3 latest-news-agile-right-content">
+        <h5 class="side-t-w3l-agile">Danh sách tập</h5>
+        <%= render "videos/list-movies" %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+
+    <div class="latest-news-agile-info" style="padding-top:1em">
+     <div class="col-md-9 latest-news-agile-left-content">
+        <div class="single video_agile_player">
+          <div class="agile-post">
+            <ul class="w3l-sider-list">
+              <li><i class="fa fa-eye" aria-hidden="true"></i>Lượt xem <span>2602</span> </li><br>
+              <li><i class="fa fa-list-alt" aria-hidden="true"></i>Thể loại <span>2602</span></li><br>
+            </ul>
+          </div>
+             <p><%= @video.description.html_safe %></p>
+          </div>
+          <div class="single-agile-shar-buttons">
+            <h5 >Share This :</h5>
+          <ul>
+            <li>
+              <div class="fb-like" data-href="https://www.facebook.com/w3layouts" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+            </li>
+            <li>
+              <div class="fb-share-button" data-href="https://www.facebook.com/w3layouts" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fw3layouts&amp;src=sdkpreparse">Share</a></div>
+            </li>
+            <li class="news-twitter">
+              <a href="https://twitter.com/w3layouts" class="twitter-follow-button" data-show-count="false">Follow @w3layouts</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </li>
+            <li>
+              <a href="https://twitter.com/intent/tweet?screen_name=w3layouts" class="twitter-mention-button" data-show-count="false">Tweet to @w3layouts</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </li>
+            <li>
+                <!-- Place this tag where you want the +1 button to render. -->
+              <div class="g-plusone" data-size="medium"></div>
+                <!-- Place this tag after the last +1 button tag. -->
+            </li>
+          </ul>
+        </div>
+        <div class="admin-text">
+          <h5>WRITTEN BY ADMIN</h5>
+          <div class="admin-text-left">
+            <a href="#"><%= image_tag "admin.jpg", alt: "" %></a>
+          </div>
+          <div class="admin-text-right">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <span>View all posts by :<a href="#"> Admin </a></span>
+        </div>
+        <div class="clearfix"> </div>
+        </div>
+        <div class="response">
+<!-- agile-comments -->
+          <div class="agile-news-comments">
+            <div class="agile-news-comments-info">
+              <h4>Comments</h4>
+              <div class="fb-comments" data-href="https://w3layouts.com/"
+                data-width="100%" data-numposts="5">
+              </div>
+            </div>
+          </div>
+<!-- //agile-comments -->
+        </div>
+      </div>
+      <div class="col-md-3 latest-news-agile-right-content">
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

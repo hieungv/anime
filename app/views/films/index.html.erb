@@ -1,0 +1,47 @@
+<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+  <div class="agile-news-table"><%= link_to "Thêm phim", new_film_path %>
+    <table  class="table table-striped table-bordered example" >
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Tên phim</th>
+          <th>Năm phát hành</th>
+          <th>Tổng số tập</th>
+          <th>Thể loại</th>
+          <th>Tổng lượt xem</th>
+          <th>Đánh giá</th>
+          <th>Trạng thái</th>
+          <th>Tác vụ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @films.each do |film| %>
+          <tr>
+            <td>1</td>
+            <td class="w3-list-img"><a href="single.html"><%= image_tag url_for(film.thumbnail), alt: "" %> <span><%= film.name %></span></a></td>
+            <td><%= film.release_year %></td>
+            <td>HD</td>
+            <td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
+            <td class="w3-list-info"><a href="genre.html">Comedy, Drama</a></td>
+            <td>7.0</td>
+            <td>dang cap nhat</td>
+            <td>
+              <%= link_to  new_film_video_path(film), class: "label label-danger" do %>
+                Thêm tập
+              <% end %>
+              <%= link_to film, class: "label label-info" do %>
+                Danh sách tập
+              <% end %>
+              <%= button_to "Them tap", class: "label label-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $('.example').DataTable();
+      });
+    </script>
+  </div>
+</div>

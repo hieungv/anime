@@ -1,0 +1,27 @@
+<%= form_for [@film, @video] ,remote: true do |form| %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.label :clip %>
+    <%= form.file_field :clip %>
+  </div>
+  <div class="field">
+    <%= form.label :thumbnail %>
+    <%= form.file_field :thumbnail %>
+  </div>
+  <div class="field">
+    <%= form.label :episodes %>
+    <%= form.number_field :episodes %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+  <%= form.text_area :description, class: "ckeditor" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

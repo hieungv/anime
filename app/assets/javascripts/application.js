@@ -12,5 +12,12 @@
 //= require owl.carousel.js
 //= require move-top.js
 //= require easing.js
+//= require classie.js
+//= require move-top.js
 //= require custom.js
 //= require_tree .
+//= require ckeditor/init
+//= require dataTables.bootstrap.min.js
+//= require jquery.dataTables.min.js
+//= require jquery-1.11.1.min.js
+//= require video-js
