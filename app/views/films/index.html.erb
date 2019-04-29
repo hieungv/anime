@@ -1,5 +1,7 @@
 <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-  <div class="agile-news-table"><%= link_to "Thêm phim", new_film_path %>
+  <div class="agile-news-table">
+    <%= link_to "Thêm phim", new_film_path %>
+    <%= link_to "Thêm thể loại", new_category_path %>
     <table  class="table table-striped table-bordered example" >
       <thead>
         <tr>
@@ -31,6 +33,10 @@
               <% end %>
               <%= link_to film, class: "label label-info" do %>
                 Danh sách tập
+              <% end %>
+              <%= link_to film_path(film.id),
+            method: :delete,  data: { confirm: "chac xoa" }, class: "label label-danger" do %>
+                Xóa
               <% end %>
               <%= button_to "Them tap", class: "label label-danger" %>
             </td>

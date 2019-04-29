@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_19_160619) do
+ActiveRecord::Schema.define(version: 2019_04_28_164731) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2019_04_19_160619) do
     t.integer "view"
     t.integer "episodes"
     t.string "slug"
+    t.string "image"
     t.index ["slug"], name: "index_videos_on_slug", unique: true
   end
 
