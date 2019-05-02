@@ -6,8 +6,7 @@ class Film < ApplicationRecord
   has_many :film_categories, dependent: :destroy
   has_many :categories, through: :film_categories
   has_many :videos, dependent: :destroy
-  accepts_nested_attributes_for :film_categories, allow_destroy: true,
-    reject_if: :all_blank
+  accepts_nested_attributes_for :film_categories
   def resize_film
     thumbnail.variant(resize: "250x300!")
   end
