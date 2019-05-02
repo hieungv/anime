@@ -9,8 +9,7 @@ class FilmCategoriesController < ApplicationController
 
   # GET /film_categories/1
   # GET /film_categories/1.json
-  def show
-  end
+  def show; end
 
   # GET /film_categories/new
   def new
@@ -18,8 +17,7 @@ class FilmCategoriesController < ApplicationController
   end
 
   # GET /film_categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /film_categories
   # POST /film_categories.json
@@ -28,11 +26,11 @@ class FilmCategoriesController < ApplicationController
 
     respond_to do |format|
       if @film_category.save
-        format.html { redirect_to @film_category, notice: 'Film category was successfully created.' }
-        format.json { render :show, status: :created, location: @film_category }
+        format.html{redirect_to @film_category, notice: "Film category was successfully created."}
+        format.json{render :show, status: :created, location: @film_category}
       else
-        format.html { render :new }
-        format.json { render json: @film_category.errors, status: :unprocessable_entity }
+        format.html{render :new}
+        format.json{render json: @film_category.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -42,11 +40,11 @@ class FilmCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @film_category.update(film_category_params)
-        format.html { redirect_to @film_category, notice: 'Film category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @film_category }
+        format.html{redirect_to @film_category, notice: "Film category was successfully updated."}
+        format.json{render :show, status: :ok, location: @film_category}
       else
-        format.html { render :edit }
-        format.json { render json: @film_category.errors, status: :unprocessable_entity }
+        format.html{render :edit}
+        format.json{render json: @film_category.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -56,19 +54,19 @@ class FilmCategoriesController < ApplicationController
   def destroy
     @film_category.destroy
     respond_to do |format|
-      format.html { redirect_to film_categories_url, notice: 'Film category was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html{redirect_to film_categories_url, notice: "Film category was successfully destroyed."}
+      format.json{head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_film_category
-      @film_category = FilmCategory.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_film_category
+    @film_category = FilmCategory.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def film_category_params
-      params.require(:film_category).permit(:film_id, :categories_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def film_category_params
+    params.require(:film_category).permit(:film_id, :categories_id)
+  end
 end
