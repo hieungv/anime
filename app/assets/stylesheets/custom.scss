@@ -2,7 +2,7 @@
 {
   float: left;
   height: 450px;
-  background: #F5F5F5;
+  background: #fbfbfb;
   overflow-y: scroll;
   margin-bottom: 25px;
 }
@@ -35,8 +35,10 @@
 
 
 .scrollbar-movie{
-  max-width: 1200px;
+  max-width: 996px;
   margin: 0 auto;
+  background: #ffffff;
+
 }
 .book-info {
 
@@ -70,4 +72,13 @@
     margin-top: 15px 0 15px;
   }
 
+}
+.multi-column-dropdown li {
+  float: left;
+  width: 33%;
+  margin: 0 auto;
+}
+
+.wthree_agile-requested-movies{
+  margin-left: 10px;
 }

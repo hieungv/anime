@@ -2,7 +2,7 @@ class FilmsController < ApplicationController
   before_action :set_film, only: [:show, :edit, :update, :destroy]
   before_action :list_categories, only: %i(new edit)
   def index
-    @films = Film.all
+    @films = Film.friendly.all
   end
 
   def show
