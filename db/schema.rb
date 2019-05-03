@@ -117,7 +117,6 @@ ActiveRecord::Schema.define(version: 2019_04_30_165717) do
     t.integer "view"
     t.integer "episodes"
     t.string "slug"
-    t.string "image"
     t.index ["slug"], name: "index_videos_on_slug", unique: true
   end
 
