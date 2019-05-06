@@ -769,7 +769,7 @@ a.w3layouts-t:hover {
 /*-- /content-inner --*/
 
 .w3_content_agilleinfo_inner {
-	padding: 3em 0;
+	/*padding: 3em 0;*/
 }
 
 .agile_featured_movies {
@@ -3536,7 +3536,7 @@ ul.bottom-links-agile li a {
 		letter-spacing: 5px;
 	}
 	.w3_content_agilleinfo_inner {
-		padding: 2em 0;
+		/*padding: 2em 0;*/
 	}
 	.response {
 		margin: 2em 0;
@@ -3599,7 +3599,7 @@ ul.bottom-links-agile li a {
 
 @media (max-width:414px) {
 	.w3_content_agilleinfo_inner {
-		padding: 2em 0;
+		/*padding: 2em 0;*/
 	}
 	.baner-info h3 {
 		font-size: 1.4em;

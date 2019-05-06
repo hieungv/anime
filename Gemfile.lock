@@ -296,6 +296,8 @@ GEM
     httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    impressionist (1.6.1)
+      nokogiri (~> 1)
     ipaddress (0.8.3)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
@@ -507,6 +509,7 @@ DEPENDENCIES
   faker
   fog
   friendly_id
+  impressionist
   jbuilder (~> 2.5)
   jquery-datatables-rails (~> 3.4)
   kaminari

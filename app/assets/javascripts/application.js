@@ -19,13 +19,7 @@
 //= require dataTables.bootstrap.min.js
 //= require jquery.dataTables.min.js
 //= require jquery-1.11.1.min.js
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 //= require video-js
->>>>>>> 617e6bb... Create film
-=======
->>>>>>> 3baa14f... login, fix show
 //= require chosen-jquery
 //= require chosen-prototype
 //= require films
