@@ -5,6 +5,8 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all
+    today = Date.today
+    @imp = Impression.where(created_at: today, impressionable_id: @advertisement.id)
   end
 
   def show
