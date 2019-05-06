@@ -28,7 +28,14 @@
           <div class="agile-post">
             <ul class="w3l-sider-list">
               <li><i class="fa fa-eye" aria-hidden="true"></i>Lượt xem <span><%= @video.impressionist_count %></span> </li><br>
-              <li><i class="fa fa-list-alt" aria-hidden="true"></i>Thể loại <span>2602</span></li><br>
+              <li><i class="fa fa-list-alt" aria-hidden="true"></i>Thể loại
+                <% @video.film.film_categories.each do |film| %>
+                  <span>
+                    <%= link_to film.category.name,
+                      category_path(id: film.category.slug) %>
+                  </span>
+                <% end %>
+              </li><br>
             </ul>
           </div>
              <p><%= @video.film.description.html_safe %></p>

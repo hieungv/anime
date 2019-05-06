@@ -1,12 +1,11 @@
 class VideosController < ApplicationController
+  authorize_resource
   impressionist actions: %i(show)
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :find_film, except: %i(show)
 
   def index
     @videos = Video.all
-    today = Date.today
-    @imp = Impression.where(created_at: today, impressionable_id: @advertisement.id)
   end
 
   def show
