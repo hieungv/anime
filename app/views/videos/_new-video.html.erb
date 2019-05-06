@@ -1,6 +1,10 @@
 <% @videos.each do |video| %>
 <div class="col-md-2 w3l-movie-gride-agile requested-movies">
+<<<<<<< HEAD
   <%= link_to film_video_path(film_id: video.film_id, id: video), class: "hvr-sweep-to-bottom" do %>
+=======
+  <%= link_to film_video_path(film_id: video.film.slug, id: video), class: "hvr-sweep-to-bottom" do %>
+>>>>>>> 5d12dc03321366734648caeb849eb8d8a5b6bb75
       <%= image_tag url_for(video.film.thumbnail), title: video.title, alt: " ", height: "220px" %>
     <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
   <% end %>
@@ -9,7 +13,9 @@
         <h6><a href="single.html"><%= video.film.name %></a></h6>
       </div>
       <div class="mid-2 agile_mid_2_home">
-        <p>2016</p>
+        <p><i class="fa fa-eye" aria-hidden="true" title="Lượt xem"></i>
+          <%= video.impressionist_count %>
+        </p>
         <div class="block-stars">
           <ul class="w3l-ratings">
             <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>

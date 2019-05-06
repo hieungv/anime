@@ -1,13 +1,11 @@
-<div class="w3_content_agilleinfo_inner">
-  <div class="agile_featured_movies">
-    <h3 class="agile_w3_title hor-t"><%= @category.name%></h3>
-    <div class="wthree_agile-requested-movies tv-movies">
-
-      <% @category.films.each do |film| %>
-        <div class="col-md-2 w3l-movie-gride-agile requested-movies">
+<div class="w3_agile_latest_movies">
+  <div id="owl-demo" class="owl-carousel owl-theme">
+    <% @top_film.each do |film| %>
+      <div class="item">
+        <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
           <%= link_to film_video_path(film_id: film.slug, id: film.videos.first), class: "hvr-sweep-to-bottom" do %>
-            <%= image_tag film.thumbnail, title: "Movies Pro",
-               alt: film.name, height: "220px" %>
+            <%=image_tag film.thumbnail ,title: "Movies Pro", height: "220px",
+              alt: " " %>
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
           <% end %>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -15,16 +13,14 @@
               <h6><a href="single.html"><%= film.name %></a></h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
-              <p><i class="fa fa-eye" aria-hidden="true" title="Lượt xem"></i>
-                  <%= score(film) %>
-              </p>
+              <p><%= film.total %></p>
               <div class="block-stars">
                 <ul class="w3l-ratings">
                   <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                   <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                   <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
                 </ul>
               </div>
               <div class="clearfix"></div>
@@ -34,11 +30,7 @@
             <p>NEW</p>
           </div>
         </div>
+      </div>
       <% end %>
-
-      <div class="clearfix"></div>
-    </div>
   </div>
 </div>
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
