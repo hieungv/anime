@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  impressionist actions: %i(show)
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :find_film, except: %i(show)
 
@@ -9,6 +10,7 @@ class VideosController < ApplicationController
   def show
     @film = Film.friendly.find params[:film_id]
     @videos = @film.videos.all
+    impressionist(@video)
   end
 
   def new
@@ -22,15 +24,7 @@ class VideosController < ApplicationController
     @video.film_id = @film.id
     respond_to do |format|
       if @video.save
-<<<<<<< HEAD
-<<<<<<< HEAD
         format.html{redirect_to films_path}
-=======
-        format.html{redirect_to @video}
->>>>>>> 617e6bb... Create film
-=======
-        format.html{redirect_to films_path}
->>>>>>> 3baa14f... login, fix show
       else
         format.html{render :new}
       end
