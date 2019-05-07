@@ -1,4 +1,5 @@
 class FilmsController < ApplicationController
+  authorize_resource
   before_action :set_film, only: [:show, :edit, :update, :destroy]
   before_action :list_categories, only: %i(new edit)
   def index

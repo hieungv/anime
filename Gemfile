@@ -6,6 +6,7 @@ ruby "2.5.3"
 gem "aws-sdk-s3", require: false
 gem "bootsnap"
 gem "bootstrap-kaminari-views"
+gem "cancancan"
 gem "carrierwave"
 gem "chosen-rails"
 gem "ckeditor", "4.1.3"

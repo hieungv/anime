@@ -1,6 +1,6 @@
 class Film < ApplicationRecord
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: %i(slugged finders)
   validates :name, presence: true, uniqueness: {case_sensitive: false}
   has_one_attached :thumbnail
   has_many :film_categories, dependent: :destroy
