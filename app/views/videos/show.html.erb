@@ -1,8 +1,10 @@
-<div class="w3_content_agilleinfo_inner">
+<% provide :title, @video.title %>
+
+<div class="w3_content_agilleinfo_inner" id="main-content">
   <div class="agile_featured_movies">
     <div class="latest-news-agile-info" style="padding-top:1em">
       <div class="col-md-9 latest-news-agile-left-content">
-        <div class="single video_agile_player" id="main-content">
+        <div class="single video_agile_player" >
 
           <div class="video-grid-single-page-agileits" >
             <video id="video" class="video-js" controls preload="auto"
@@ -28,7 +30,14 @@
           <div class="agile-post">
             <ul class="w3l-sider-list">
               <li><i class="fa fa-eye" aria-hidden="true"></i>Lượt xem <span><%= @video.impressionist_count %></span> </li><br>
-              <li><i class="fa fa-list-alt" aria-hidden="true"></i>Thể loại <span>2602</span></li><br>
+              <li><i class="fa fa-list-alt" aria-hidden="true"></i>Thể loại
+                <% @video.film.film_categories.each do |film| %>
+                  <span>
+                    <%= link_to film.category.name,
+                      category_path(id: film.category.slug), class: "label label-primary", style: "color: white" %>
+                  </span>
+                <% end %>
+              </li><br>
             </ul>
           </div>
              <p><%= @video.film.description.html_safe %></p>

@@ -18,7 +18,12 @@
         <% @videos.each do |video| %>
           <tr>
             <td>1</td>
-            <td class="w3-list-img"><a href="single.html"><%= image_tag url_for(video.thumbnail), alt: "" %> <span><%= video.title %></span></a></td>
+            <td class="w3-list-img">
+              <%= link_to film_video_path(film_id: video.film.slug, id: video) do %>
+                <%= image_tag url_for(video.thumbnail), alt: "" %>
+                <span><%= video.title %></span>
+              <% end %>
+            </td>
             <td></td>
             <td><%= video.episodes %></td>
             <td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
