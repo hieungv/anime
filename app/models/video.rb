@@ -8,7 +8,7 @@ class Video < ApplicationRecord
   has_one_attached :thumbnail
   belongs_to :film
 
-  scope :sum_view, -> (film){where "film_id ?", "#{film}"}
+  scope :order_desc_time, ->{order created_at: :desc}
   def should_generate_new_friendly_id?
     view_changed? || super
   end

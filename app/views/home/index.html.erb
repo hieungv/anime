@@ -11,6 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <div class="wthree_agile-requested-movies">
     <%= render "videos/new-video" %>
   <div class="clearfix"></div>
+  <%= paginate @videos, theme: "twitter-bootstrap-3", window: 3 %>
   </div>
 </div>
 
