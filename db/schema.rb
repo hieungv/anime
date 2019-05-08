@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_045011) do
+ActiveRecord::Schema.define(version: 2019_05_09_150049) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -123,6 +123,17 @@ ActiveRecord::Schema.define(version: 2019_05_07_045011) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "star"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["video_id"], name: "index_reviews_on_video_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -141,15 +152,19 @@ ActiveRecord::Schema.define(version: 2019_05_07_045011) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "film_id"
+    t.bigint "film_id"
     t.integer "view"
     t.integer "episodes"
     t.string "slug"
     t.integer "impressions_count"
+    t.index ["film_id"], name: "index_videos_on_film_id"
     t.index ["slug"], name: "index_videos_on_slug", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "film_categories", "categories"
   add_foreign_key "film_categories", "films"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "videos"
+  add_foreign_key "videos", "films"
 end

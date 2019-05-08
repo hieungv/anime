@@ -1,0 +1,4 @@
+$('.destroy-product').bind('ajax:success', function() {
+   $(this).closest('.edit_review').fadeOut();
+});
+$('.xh_star').html("<%= j render("reviews/xh_star") %>");

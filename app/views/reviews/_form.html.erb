@@ -1,0 +1,13 @@
+<%= form_for [@film, @video ,@video.reviews.build] ,remote: true do |f| %>
+  <a id="my-link">
+    <div class="rating-form" ></div>
+  </a>
+  <div id="myDIV" style="display: none">
+    <%= f.text_area :content, class: "form-control animated", cols: "50",
+      rows: "5", id: "new-review" %>
+    <%= f.button "Gửi đánh giá", class: "my-link1 label label-primary" %>
+    <a class="my-link1 label label-danger">
+    Hủy bỏ
+    </a>
+  </div>
+<% end %>

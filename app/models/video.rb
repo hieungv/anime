@@ -6,9 +6,10 @@ class Video < ApplicationRecord
   validates :title, presence: true, uniqueness: {case_sensitive: false}
   has_one_attached :clip
   has_one_attached :thumbnail
+  has_many :reviews
   belongs_to :film
 
-  scope :sum_view, -> (film){where "film_id ?", "#{film}"}
+  scope :order_desc_time, ->{order created_at: :desc}
   def should_generate_new_friendly_id?
     view_changed? || super
   end
