@@ -10,11 +10,14 @@
           <% end %>
         </div>
         <div class="wom-right">
-          <h6><a href="single.html"><%= video.title %></a></h6>
-            <ul class="w3l-sider-list">
-              <li><i class="fa fa-clock-o" aria-hidden="true"></i>On Jan 12, 2016</li>
-              <li><i class="fa fa-eye" aria-hidden="true"></i><%= video.impressionist_count %></li>
-            </ul>
+          <ul class="w3l-sider-list">
+            <li>
+              <h6><a href="single.html"><%= video.title %></a></h6>
+            </li>
+            <li><i class="fa fa-eye" aria-hidden="true"></i>
+              <%= video.impressionist_count %>
+            </li>
+          </ul>
         </div>
         <div class="clearfix"> </div>
       </div>
