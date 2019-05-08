@@ -3,6 +3,12 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+
+  <div class="field">
+    <%= form.label :version %>
+    <%= form.collection_select :version_id, Version.order(:name), :id, :name, {}, {multiple: false} %>
+  </div>
+
   <div class="field">
     <%= form.label :clip %>
     <%= form.file_field :clip %>
@@ -17,7 +23,7 @@
   </div>
   <div class="field">
     <%= form.label :description %>
-  <%= form.text_area :description, class: "ckeditor" %>
+  <%= form.cktext_area :description, class: "ckeditor" %>
   </div>
 
   <div class="actions">

@@ -1,6 +1,6 @@
+//= require turbolinks
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require modernizr-2.6.2.min.js
 //= require bootstrap.js
 //= require jquery-1.11.1.min.js
@@ -22,4 +22,5 @@
 //= require chosen-jquery
 //= require chosen-prototype
 //= require films
+//= require jquery.raty
 //= require_tree .

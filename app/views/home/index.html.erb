@@ -5,12 +5,13 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <div class="w3_content_agilleinfo_inner">
-  <h3 class="agile_w3_title"> TOP <span>NGÀY</span></h3>
+  <h3 class="agile_w3_title"> TOP <span>Anime</span></h3>
     <%= render "videos/top-video" %>
   <h3 class="agile_w3_title">Tập<span>mới nhất</span> </h3>
   <div class="wthree_agile-requested-movies">
     <%= render "videos/new-video" %>
   <div class="clearfix"></div>
+  <%= paginate @videos, theme: "twitter-bootstrap-3", window: 3 %>
   </div>
 </div>
 

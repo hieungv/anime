@@ -8,8 +8,7 @@
           <th>Năm phát hành</th>
           <th>Tập</th>
           <th>Thể loại</th>
-          <th>Tổng lượt xem</th>
-          <th>Đánh giá</th>
+          <th>Lượt xem</th>
           <th>Trạng thái</th>
           <th>Tác vụ</th>
         </tr>
@@ -18,17 +17,32 @@
         <% @videos.each do |video| %>
           <tr>
             <td>1</td>
-            <td class="w3-list-img"><a href="single.html"><%= image_tag url_for(video.thumbnail), alt: "" %> <span><%= video.title %></span></a></td>
-            <td></td>
-            <td><%= video.episodes %></td>
-            <td class="w3-list-info"><a href="genre.html">United Kingdom</a></td>
-            <td class="w3-list-info"><a href="genre.html">
-              <%= video.film.categories.first.name %></a>
+            <td class="w3-list-img">
+              <%= link_to film_video_path(film_id: video.film.slug, id: video) do %>
+                <%= image_tag url_for(video.thumbnail), alt: "" %>
+                <span><%= video.title %></span>
+              <% end %>
             </td>
-            <td>7.0</td>
+            <td>
+              <%= video.created_at%>
+            </td>
+            <td><%= video.episodes %></td>
+            <td class="w3-list-info">
+              <% video.film.categories.each do |f| %>
+                <%= link_to f  do%>
+                  <p class="label label-primary"><%= f.name %></p>
+                <% end %>
+              <% end %>
+            </td>
+            <td class="w3-list-info">
+              <a href="genre.html">
+                <%= video.impressions_count %>
+              </a>
+            </td>
+
             <td>dang cap nhat</td>
             <td>
-              <%= link_to  edit_video_path(video), class: "label label-danger" do %>
+              <%= link_to  edit_film_video_path(film_id: video.film.slug, id: video), class: "label label-danger" do %>
                 Edit
               <% end %>
 
