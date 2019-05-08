@@ -42,29 +42,47 @@
                 </li>
               </ul>
             </li>
-            <li><%= link_to "news", "news.html" %></li>
 
           <% if user_signed_in? %>
             <% if current_user.admin %>
-              <li><%= link_to "Danh sách anime", films_path %></li>
+              <li><%= link_to "Quản lý anime", films_path %></li>
+              <li><%= link_to "Quản lý người dùng", users_path %></li>
             <% end %>
-          <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                Đăng xuất
+            <li class="dropdown">
+              <%= link_to  new_user_session_path do %>
+                Xin chào <%= current_user.name %>
+                 <b class="caret"></b>
               <% end %>
+              <ul class="dropdown-menu multi-column columns-3">
+                <li>
+                  <ul class="multi-column-dropdown">
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                      Đăng xuất
+                    <% end %>
+                  </ul>
+                  <ul class="multi-column-dropdown">
+                    <%= link_to "Facebook Login", '/auth/facebook' %>
+                  </ul>
+                </li>
+              </ul>
             </li>
+
           <% else %>
             <li class="dropdown">
               <%= link_to "Đăng nhập", new_user_session_path %>
               <ul class="dropdown-menu multi-column columns-3">
-              <li>
-                <ul class="multi-column-dropdown">
-                  <%= link_to "Đăng ký", new_user_registration_path %>
-                </ul>
-              </li>
-            </ul>
-          </li>
+                <li>
+                  <ul class="multi-column-dropdown">
+                    <%= link_to "Đăng ký", new_user_registration_path %>
+                  </ul>
+                  <ul class="multi-column-dropdown">
+                    <%= link_to "Facebook Login", '/auth/facebook' %>
+                  </ul>
+                </li>
+              </ul>
+            </li>
           <% end %>
+
         </ul>
       </div>
       <div class="clearfix"> </div>

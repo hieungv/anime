@@ -9,8 +9,8 @@
           <th>Tên phim</th>
           <th>Năm phát hành</th>
           <th>Tổng số tập</th>
+          <th>Lượt xem</th>
           <th>Thể loại</th>
-          <th>Tổng lượt xem</th>
           <th>Đánh giá</th>
           <th>Trạng thái</th>
           <th>Tác vụ</th>
@@ -20,23 +20,33 @@
         <% @films.each do |film| %>
           <tr>
             <td>1</td>
-            <td class="w3-list-img"><a href="single.html"><%= image_tag url_for(film.thumbnail), alt: "" %> <span><%= film.name %></span></a></td>
+            <td class="w3-list-img">
+              <%= link_to film_video_path(film_id: film.slug, id: film.videos.first) do %>
+                <%= image_tag url_for(film.thumbnail), alt: "" %>
+                  <span><%= film.name %></span>
+              <% end %>
+            </td>
             <td><%= film.release_year %></td>
-            <td>HD</td>
+            <td>
+              <%= film.videos.count %>
+            </td>
             <td class="w3-list-info"><a href="genre.html">
-              <%= film.categories.first.name %></a>
+              <%= sum_view(film) %>
             </td>
             <td class="w3-list-info">
               <% film.categories.each do |f| %>
                 <%= link_to f do %>
-                  <%= f.name %>
+                  <p class="label label-primary"><%= f.name %></p>
                 <% end %>
               <% end %>
             </td>
-            <td>7.0</td>
+            <td>
+              <%= avg_star(film) %>
+              (<%= count_reviews_user(film) %> )
+            </td>
             <td>dang cap nhat</td>
             <td>
-              <%= link_to  new_film_video_path(film), class: "label label-danger" do %>
+               <%= link_to  new_film_video_path(film), class: "label label-danger", data:{turbolinks: "false"} do %>
                 Thêm tập
               <% end %>
               <%= link_to film, class: "label label-info" do %>
@@ -46,7 +56,6 @@
             method: :delete,  data: { confirm: "chac xoa" }, class: "label label-danger" do %>
                 Xóa
               <% end %>
-              <%= button_to "Them tap", class: "label label-danger" %>
             </td>
           </tr>
         <% end %>

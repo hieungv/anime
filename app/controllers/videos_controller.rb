@@ -2,15 +2,15 @@ class VideosController < ApplicationController
   authorize_resource
   impressionist actions: %i(show)
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-  before_action :find_film, except: %i(show)
+  before_action :find_film
 
   def index
     @videos = Video.all
   end
 
   def show
-    @film = Film.friendly.find params[:film_id]
-    @videos = @film.videos.all
+    @reviews = Review.where(film_id: @film.id).page(params[:page])
+    @videos = @film.videos.page(params[:page]).per(5).order("episodes ASC")
     impressionist(@video)
   end
 
@@ -25,7 +25,7 @@ class VideosController < ApplicationController
     @video.film_id = @film.id
     respond_to do |format|
       if @video.save
-        format.html{redirect_to films_path}
+        format.html{redirect_to film_path(@video.film)}
       else
         format.html{render :new}
       end
@@ -66,6 +66,6 @@ class VideosController < ApplicationController
 
   def video_params
     params.require(:video).permit(:title, :description, :clip, :thumbnail,
-      :episodes, :view)
+      :episodes, :view, :version_id, :iframe_openload)
   end
 end
