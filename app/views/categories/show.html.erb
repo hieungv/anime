@@ -1,8 +1,10 @@
+<% provide :title, @category.name %>
+
 <div class="w3_content_agilleinfo_inner">
   <div class="agile_featured_movies">
     <h3 class="agile_w3_title hor-t"><%= @category.name%></h3>
     <div class="wthree_agile-requested-movies tv-movies">
-      <% @category.films.each do |film| %>
+      <% @categories.each do |film| %>
         <div class="col-md-2 w3l-movie-gride-agile requested-movies">
           <%= link_to film_video_path(film_id: film.slug, id: film.videos.first), class: "hvr-sweep-to-bottom" do %>
             <%= image_tag film.thumbnail, title: "Movies Pro",
@@ -11,7 +13,10 @@
           <% end %>
           <div class="mid-1 agileits_w3layouts_mid_1_home">
             <div class="w3l-movie-text">
-              <h6><a href="single.html"><%= film.name %></a></h6>
+              <h6>
+                <%= link_to truncate(film.name, length: 18),
+                  film_video_path(film_id: film.slug, id: film.videos.first) %>
+              </h6>
             </div>
             <div class="mid-2 agile_mid_2_home">
               <p><i class="fa fa-eye" aria-hidden="true" title="Lượt xem"></i>
@@ -19,24 +24,19 @@
               </p>
               <div class="block-stars">
                 <ul class="w3l-ratings">
-                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                  <li><%= avg_star(film) %></li>
+                  <li>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </li>
                 </ul>
               </div>
               <div class="clearfix"></div>
             </div>
           </div>
-          <div class="ribben one">
-            <p>NEW</p>
-          </div>
         </div>
       <% end %>
+      <%= paginate @categories, theme: "twitter-bootstrap-3", window: 3 %>
       <div class="clearfix"></div>
     </div>
   </div>
 </div>
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>

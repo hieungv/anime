@@ -6,7 +6,9 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def show; end
+  def show
+    @categories = @category.films.page(params[:page]).per 20
+  end
 
   def new
     @category = Category.new
@@ -46,7 +48,8 @@ class CategoriesController < ApplicationController
   private
 
   def set_category
-    @category = Category.find(params[:id])
+    return if @category = Category.find_by(slug: params[:id])
+    redirect_to root_path
   end
 
   def category_params

@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
+  resources :reviews
   mount Ckeditor::Engine => "/ckeditor"
   scope "(:locale)", locale: /en|vi/ do
     root "home#index"
     devise_for :users
-    resources :movies
-    resources :film_categories
-    resources :categories
-    resources :films do
-      resources :videos
+    resources :film_categories, :users
+    resources :categories, path: "thể loại"
+    resources :films, path: "anime" do
+      resources :videos, path: "tập"
     end
-    resources :videos
+    resources :videos, path: "tập" do
+      resources :reviews
+    end
+  resources :top_views
+  resources :top_stars
+  get "auth/facebook", as: "auth_provider"
+  get "auth/facebook/callback", to: "users#login"
   end
 end

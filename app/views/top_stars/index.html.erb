@@ -1,0 +1,43 @@
+<% provide :title, "Đánh giá cao nhất" %>
+
+<div class="w3_content_agilleinfo_inner">
+  <div class="agile_featured_movies">
+    <h3 class="agile_w3_title hor-t">Phim </h3>
+    <div class="wthree_agile-requested-movies tv-movies">
+      <% @top_stars.each do |film| %>
+        <div class="col-md-2 w3l-movie-gride-agile requested-movies">
+          <%= link_to film_video_path(film_id: film.slug, id: film.videos.first), class: "hvr-sweep-to-bottom" do %>
+            <%= image_tag film.thumbnail, title: "Movies Pro",
+               alt: film.name, height: "220px" %>
+            <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+          <% end %>
+          <div class="mid-1 agileits_w3layouts_mid_1_home">
+            <div class="w3l-movie-text">
+              <h6>
+                <%= link_to truncate(film.name, length: 18),
+                  film_video_path(film_id: film.slug, id: film.videos.first) %>
+              </h6>
+            </div>
+            <div class="mid-2 agile_mid_2_home">
+              <p><i class="fa fa-eye" aria-hidden="true" title="Lượt xem"></i>
+                  <%= score(film) %>
+              </p>
+              <div class="block-stars">
+                <ul class="w3l-ratings">
+                  <li><%= film.total %></li>
+                  <li>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <%= paginate @top_stars, theme: "twitter-bootstrap-3", window: 3 %>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

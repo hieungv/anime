@@ -1,17 +1,33 @@
-<div class="w3_content_agilleinfo_inner">
+<% provide :title, @video.title %>
+
+<div class="w3_content_agilleinfo_inner" id="main-content">
   <div class="agile_featured_movies">
     <div class="latest-news-agile-info" style="padding-top:1em">
       <div class="col-md-9 latest-news-agile-left-content">
-        <div class="single video_agile_player" id="main-content">
+        <div class="single video_agile_player" >
+          <div class="video-grid-single-page-agileits">
 
-          <div class="video-grid-single-page-agileits" >
-            <video id="video" class="video-js" controls preload="auto"
-              poster="<%= url_for(@video.thumbnail) %>" data-setup="{}">
-              <source src="<%= url_for(@video.clip) %>" type="video/mp4">
-            </video>
-            <script src='https://vjs.zencdn.net/7.5.4/video.js'></script>
-
+          <% if @video.iframe_openload? %>
+            <div id="openload" style="display: block;">
+              <%= @video.iframe_openload.html_safe %>
+            </div>
+          <% else %>
+            <div  id="active_storage" style="display: block;">
+              <video id="video" class="video-js" controls preload="auto"
+                poster="<%= url_for(@video.thumbnail) %>" data-setup="{}">
+                <source src="<%= url_for(@video.clip) %>" type="video/mp4">
+              </video>
+              <script src='https://vjs.zencdn.net/7.5.4/video.js'></script>
+            </div>
+          <% end %>
           </div>
+
+            <a id="du-phong-a" class="label label-primary">
+              du phong A
+            </a>
+            <a id="du-phong-b" class="label label-primary">
+              Du phong B
+            </a>
             <h4><%= @video.title %></h4>
         </div>
       </div>
@@ -32,7 +48,7 @@
                 <% @video.film.film_categories.each do |film| %>
                   <span>
                     <%= link_to film.category.name,
-                      category_path(id: film.category.slug) %>
+                      category_path(id: film.category.slug), class: "label label-primary", style: "color: white" %>
                   </span>
                 <% end %>
               </li><br>
@@ -54,6 +70,21 @@
         </div>
       </div>
       <div class="col-md-3 latest-news-agile-right-content">
+        <div class="xh_star">
+          <%= render "reviews/xh_star" %>
+        </div>
+        <div class="form-review"><%= render "reviews/form" %></div>
+        <hr>
+        <h4>Các đánh giá khác</h4>
+        <hr>
+        <div class="scrollbar_show " id="style-default">
+          <div class="agile-info-recent">
+            <div class="w3ls-recent-grids">
+              <div id="reviews-js"><%= render @reviews %></div>
+              <div class="clearfix"> </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="clearfix"></div>
     </div>

@@ -57,24 +57,24 @@ window.onYouTubeIframeAPIReady = function() {
 
 		play.bind('click', function () {
 
-			if ( !$('#player' ).length ) {
+			// if ( !$('#player' ).length ) {
 
-				$('<iframe />', {
-					id: 'player',
-					src: 'https://www.youtube.com/embed/' + video.data('video') + '?' + $.param(defaults)
-				})
-				.attr({ width: video.width(), height: video.height(), seamless: 'seamless' })
-				.css('border', 'none')
-				.appendTo( video );
+			// 	$('<iframe />', {
+			// 		id: 'player',
+			// 		src: 'https://www.youtube.com/embed/' + video.data('video') + '?' + $.param(defaults)
+			// 	})
+			// 	.attr({ width: video.width(), height: video.height(), seamless: 'seamless' })
+			// 	.css('border', 'none')
+			// 	.appendTo( video );
 
-				video.children('img').hide();
+			// 	video.children('img').hide();
 
-				$(this).css('background-image', 'url(play-button.png), url(' + video.children().attr('src') + ')').hide();
-	
-				player = new YT.Player('player', {events: {'onStateChange': onPlayerStateChange, 'onReady': onPlayerReady}});
-			}
+			// 	$(this).css('background-image', 'url(play-button.png), url(' + video.children().attr('src') + ')').hide();
 
-			$(this).hide();
+			// 	player = new YT.Player('player', {events: {'onStateChange': onPlayerStateChange, 'onReady': onPlayerReady}});
+			// }
+
+			// $(this).hide();
 		});
 
 		return this;

@@ -20,9 +20,11 @@
         <!-- navbar-header -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+
             <li class="active">
               <%= link_to "Trang chủ", root_path %>
             </li>
+
             <li class="dropdown">
               <%= link_to categories_path, class: "dropdown-toggle",
                 data: {toggle: "dropdown"}, aria: {expanded: "true"} do %>
@@ -42,32 +44,80 @@
                 </li>
               </ul>
             </li>
-            <li><%= link_to "news", "news.html" %></li>
 
-          <% if user_signed_in? %>
-            <% if current_user.admin %>
-              <li><%= link_to "Danh sách anime", films_path %></li>
-            <% end %>
-          <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                Đăng xuất
-              <% end %>
-            </li>
-          <% else %>
             <li class="dropdown">
-              <%= link_to "Đăng nhập", new_user_session_path %>
+              <%= link_to "#" do %>
+              Top
+              <b class="caret"></b>
+              <% end %>
               <ul class="dropdown-menu multi-column columns-3">
-              <li>
-                <ul class="multi-column-dropdown">
-                  <%= link_to "Đăng ký", new_user_registration_path %>
+                <li>
+                  <ul class="multi-column-dropdown">
+                    <%= link_to "Xem nhiều nhất", top_views_path %>
+                  </ul>
+                  <ul class="multi-column-dropdown">
+                    <%= link_to "Đánh giá cao nhất", top_stars_path  %>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <% if user_signed_in? %>
+              <% if current_user.admin %>
+                <li class="dropdown">
+                  <%= link_to  new_user_session_path do %>
+                    Quản lý
+                    <b class="caret"></b>
+                  <% end %>
+                  <ul class="dropdown-menu multi-column columns-3">
+                    <li>
+                      <ul class="multi-column-dropdown">
+                        <li><%= link_to "Quản lý anime", films_path %></li>
+                      </ul>
+                      <ul class="multi-column-dropdown">
+                        <li><%= link_to "Quản lý người dùng", users_path %></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              <% end %>
+              <li class="dropdown">
+                <%= link_to  new_user_session_path do %>
+                  Xin chào <%= current_user.name %>
+                   <b class="caret"></b>
+                <% end %>
+                <ul class="dropdown-menu multi-column columns-3">
+                  <li>
+                    <ul class="multi-column-dropdown">
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                        Đăng xuất
+                      <% end %>
+                    </ul>
+                    <ul class="multi-column-dropdown">
+                      <%= link_to "Facebook Login", '/auth/facebook' %>
+                    </ul>
+                  </li>
                 </ul>
               </li>
-            </ul>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="clearfix"> </div>
+            <% else %>
+              <li class="dropdown">
+                <%= link_to "Đăng nhập", new_user_session_path %>
+                <ul class="dropdown-menu multi-column columns-3">
+                  <li>
+                    <ul class="multi-column-dropdown">
+                      <%= link_to "Đăng ký", new_user_registration_path %>
+                    </ul>
+                    <ul class="multi-column-dropdown">
+                      <%= link_to "Facebook Login", '/auth/facebook' %>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            <% end %>
+
+          </ul>
+        </div>
+        <div class="clearfix"> </div>
       </nav>
         <div class="w3ls_search">
             <div class="cd-main-header">

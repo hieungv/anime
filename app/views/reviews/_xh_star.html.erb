@@ -1,0 +1,35 @@
+<div>
+  <p>
+    (<%= count_reviews_user(@video.film_id) %>)
+      <span style="font-size: 18px;">Đánh giá</span>
+        (<%= avg_star(@video.film_id) %>*)
+  </p>
+</div>
+<div>
+  <p>
+    <%= count_reviews_star(5, @video.film_id) %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+  </p>
+  <p><%= count_reviews_star(4, @video.film_id) %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+  </p>
+  <p><%= count_reviews_star(3, @video.film_id) %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+  </p>
+  <p><%= count_reviews_star(2, @video.film_id) %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+  </p>
+  <p><%= count_reviews_star(1, @video.film_id) %>
+    <%= image_tag "star-on.png" %>
+  </p>
+</div>

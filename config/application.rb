@@ -28,5 +28,6 @@ module Anime
     config.generators.system_tests = nil
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    Koala.config.api_version = "v3.3"
   end
 end

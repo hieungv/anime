@@ -7,7 +7,7 @@ class FilmsController < ApplicationController
   end
 
   def show
-    @videos = @film.videos.all
+    @videos = @film.videos.all.order_asc_ep
   end
 
   def new
