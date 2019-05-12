@@ -1,6 +1,6 @@
 <div class="w3_agile_latest_movies">
   <div id="owl-demo" class="owl-carousel owl-theme">
-    <% @top_film.each do |film| %>
+    <% top_anime.each do |film| %>
       <div class="item">
         <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
           <%= link_to film_video_path(film_id: film.slug, id: film.videos.first), class: "hvr-sweep-to-bottom" do %>
