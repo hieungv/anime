@@ -1,0 +1,35 @@
+<div>
+  <p>
+    (<%= @video.reviews.count(:user_id) %>)
+      <span style="font-size: 18px;">Đánh giá</span>
+        (<%= avg_star(@video.film_id) %>*)
+  </p>
+</div>
+<div>
+  <p>
+    <%= @video.reviews.where(star: 5).count(:star) %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+  </p>
+  <p><%= @video.reviews.where(star: 4).count(:star) %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+  </p>
+  <p><%= @video.reviews.where(star: 3).count(:star) %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+  </p>
+  <p><%= @video.reviews.where(star: 2).count(:star) %>
+    <%= image_tag "star-on.png" %>
+    <%= image_tag "star-on.png" %>
+  </p>
+  <p><%= @video.reviews.where(star: 1).count(:star) %>
+    <%= image_tag "star-on.png" %>
+  </p>
+</div>

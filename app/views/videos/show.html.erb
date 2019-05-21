@@ -56,6 +56,21 @@
         </div>
       </div>
       <div class="col-md-3 latest-news-agile-right-content">
+        <div class="xh_star">
+          <%= render "reviews/xh_star" %>
+        </div>
+        <div class="form-review"><%= render "reviews/form" %></div>
+        <hr>
+        <h4>Các đánh giá khác</h4>
+        <hr>
+        <div class="scrollbar_show " id="style-default">
+          <div class="agile-info-recent">
+            <div class="w3ls-recent-grids">
+              <div id="reviews-js"><%= render @reviews %></div>
+              <div class="clearfix"> </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="clearfix"></div>
     </div>

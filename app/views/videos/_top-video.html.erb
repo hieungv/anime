@@ -3,7 +3,8 @@
     <% top_anime.each do |film| %>
       <div class="item">
         <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-          <%= link_to film_video_path(film_id: film.slug, id: film.videos.first), class: "hvr-sweep-to-bottom" do %>
+          <%= link_to film_video_path(film_id: film.slug, id: film.videos.first),
+            class: "hvr-sweep-to-bottom" do %>
             <%=image_tag film.thumbnail ,title: film.name, height: "220px",
               alt: " " %>
             <div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
@@ -22,11 +23,8 @@
               </p>
               <div class="block-stars">
                 <ul class="w3l-ratings">
+                  <li><a href="#"><%= avg_star(film) %></a></li>
                   <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
                 </ul>
               </div>
               <div class="clearfix"></div>

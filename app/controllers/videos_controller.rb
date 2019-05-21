@@ -9,8 +9,9 @@ class VideosController < ApplicationController
   end
 
   def show
+    @reviews = Review.where(video_id: @video.id).page(params[:page])
     @film = Film.friendly.find params[:film_id]
-    @videos = @film.videos.all
+    @videos = @film.videos.page(params[:page]).per(5).order("episodes ASC")
     impressionist(@video)
   end
 
@@ -25,7 +26,7 @@ class VideosController < ApplicationController
     @video.film_id = @film.id
     respond_to do |format|
       if @video.save
-        format.html{redirect_to films_path}
+        format.html{redirect_to film_path(@video.film)}
       else
         format.html{render :new}
       end
@@ -66,6 +67,6 @@ class VideosController < ApplicationController
 
   def video_params
     params.require(:video).permit(:title, :description, :clip, :thumbnail,
-      :episodes, :view)
+      :episodes, :view, :version_id)
   end
 end

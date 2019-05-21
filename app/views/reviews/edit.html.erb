@@ -1,0 +1,17 @@
+<h1>Editing Review</h1>
+<%= form_for [@video ,@video.reviews.build]  do |f| %>
+  <div class="rating-form">
+              <label>Rating</label>
+            </div>
+    <%= f.text_area :content, class: "form-control animated", cols: "50",
+      rows: "5" %>
+    <%= f.button "Gửi đánh giá", class: "label label-primary" %>
+    <%= link_to film_video_path(@video.film, @video) do %>
+      <span class= "label label-danger" >Hủy bỏ</span>
+    <% end %>
+<% end %>
+<script type="text/javascript">$('.rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[star]'
+  });
+</script>
