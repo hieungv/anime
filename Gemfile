@@ -22,7 +22,7 @@ gem "koala"
 gem "mini_magick"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "omniauth-facebook"
-gem "puma", "~> 3.11"
+gem "puma", "~> 4.3"
 gem "rails", "~> 5.2.3"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
